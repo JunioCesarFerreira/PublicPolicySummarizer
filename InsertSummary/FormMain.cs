@@ -19,16 +19,29 @@ namespace InsertSumury
         private void FormMain_Load(object sender, EventArgs e)
         {
             dict_origin = CsvDataMapper.FromCsvToDict(path_texts);
+            MessageBox.Show($"Base aberta com sucesso.\nNúmero de registros válidos: {dict_origin.Count}");
             if (File.Exists(path_summuries))
                 dict_summary = CsvDataMapper.FromCsvToDict(path_summuries);
         }
 
         private void Button_Find_Click(object sender, EventArgs e)
         {
+            textBox_original.Text = "";
+            textBox_summary.Text = "";
             if (int.TryParse(textBox_id.Text, out int id))
             {
-                textBox_original.Text = dict_origin[id];
-                textBox_summary.Text = dict_summary[id];
+                if (dict_origin.TryGetValue(id, out string? value1))
+                {
+                    textBox_original.Text = value1;
+                    if (dict_summary.TryGetValue(id, out string? value2))
+                        textBox_summary.Text = value2;
+                    else
+                        dict_summary[id] = textBox_summary.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("ID não encontrado na base de dados.");
+                }
             }
         }
 

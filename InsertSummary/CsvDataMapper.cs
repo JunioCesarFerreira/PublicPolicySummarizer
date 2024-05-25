@@ -29,7 +29,7 @@ namespace InsertSumury
                                 if (values.Length > 0)
                                 {
                                     if (int.TryParse(values[0], out id))
-                                        dict[id] = string.Join(',', values.Skip(1))[1..^1];
+                                        dict[id] = string.Join(',', values.Skip(1))[1..^1].Replace("\"\"","\"");
                                 }
                             }
                             else if (id > 0)
@@ -54,10 +54,13 @@ namespace InsertSumury
             try
             {
                 using var sw = new StreamWriter(filePath);
+                sw.WriteLine("id,summary");
                 // Escreve cada par chave-valor como uma linha no arquivo CSV
                 foreach (var pair in dictionary)
                 {
-                    sw.WriteLine($"{pair.Key},\"{pair.Value}\"");
+                    // Substitui aspas duplas por aspas duplas duplicadas
+                    var escapedValue = pair.Value.Replace("\"", "\"\"");
+                    sw.WriteLine($"{pair.Key},\"{escapedValue}\"");
                 }
             }
             catch (Exception ex)

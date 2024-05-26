@@ -4,15 +4,22 @@ Neste repositório você encontrará dados e códigos relacionados a um projeto 
 
 ## Organização do repositório
 
+### Notebooks
+- [`data-collection.ipynb`](data-collection.ipynb): Notebook jupyter com blocos de código Python utilizados para baixar e preparar os dados iniciais. Neste notebook está o processo e os critérios utilizados para preparar os textos de entrada.
+
+- [`hugging-face-example.ipynb`](hugging-face-example.ipynb): Notebook jupyter com roteiro de como utilizar e especializar modelos de linguagem pré-treinados para a tarefa de sumarização de textos em português. Neste apresentamos alguns resultados de treinamentos realizados.
+
+### Dados CSV
+
 - `politicas-base.csv`: Arquivo baixado em [catalogo ipea](https://catalogo.ipea.gov.br/consulta) em 12/05/2024.
 
-- [`nb.ipynb`](nb.ipynb): Notebook jupyter com blocos de código Python utilizados para baixar e preparar os dados iniciais. Neste notebook está o processo e os critérios utilizados para preparar os textos de entrada.
-
-- `dados_politicas.csv`: Arquivo gerado por um block do `nb` ao acessar os links indicados no catalogo. O campo `texto` deste arquivo contém textos das respectivas páginas, isto incluído todo texto da página, incluso botões, links, labels, etc.
+- `dados_politicas.csv`: Arquivo gerado por um bloco do `data-collection.ipynb` ao acessar os links indicados no catalogo. O campo `texto` deste arquivo contém textos das respectivas páginas, isto incluído todo texto da página, incluso botões, links, labels, etc.
 
 - `textos_politicas.csv`: Arquivo gerado por processar o arquivo `dados_politicas.csv` removendo textos adicionas advindos das páginas web.
 
 - `resumos_politicas.csv`: Arquivo gerado com auxilido da ferramenta `InsertSummary` e chatGPT.
+
+- `combined_corpus.csv`: Arquivo gerado por combinar os arquivos `textos_politicas.csv` e `resumos_politicas.csv`.
 
 ## InsertSummary
 

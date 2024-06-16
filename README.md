@@ -9,6 +9,8 @@ Neste repositório você encontrará dados e códigos relacionados a um projeto 
 
 - [`hugging-face-example.ipynb`](hugging-face-example.ipynb): Notebook jupyter com roteiro de como utilizar e especializar modelos de linguagem pré-treinados para a tarefa de sumarização de textos em português. Neste apresentamos alguns resultados de treinamentos realizados.
 
+- [`symbolic-statistic-example.ipynb`](./symbolic-statistic-example.ipynb): Notebook jupyter com alguns exemplos de implementações de algoritmos simbólicos e estatísticos para realizar a sumarização. Neste notebook apresentamos um exemplo simbólico baseado em regras e dois exemplos estatísticos baseados na frequência das palavras e no uso de TF-IDF.
+
 ### Dados CSV
 
 - `politicas-base.csv`: Arquivo baixado em [catalogo ipea](https://catalogo.ipea.gov.br/consulta) em 12/05/2024.
@@ -19,7 +21,7 @@ Neste repositório você encontrará dados e códigos relacionados a um projeto 
 
 - `resumos_politicas.csv`: Arquivo gerado com auxilido da ferramenta `InsertSummary` e chatGPT.
 
-- `combined_corpus.csv`: Arquivo gerado por combinar os arquivos `textos_politicas.csv` e `resumos_politicas.csv`.
+- `combined_corpus.csv`: Corpus para sumarização gerado por combinar os arquivos `textos_politicas.csv` e `resumos_politicas.csv`.
 
 ## InsertSummary
 
